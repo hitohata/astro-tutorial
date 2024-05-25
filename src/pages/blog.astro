@@ -1,18 +1,15 @@
 ---
-import Header from "../components/Header.astro"
-import Footer from "../components/Footer.astro"
+import BaseLayout from '../layouts/BaseLayout.astro';
 import '../styles/global.css';
 ---
 <body>
-  <a href="/">Home</a>
-  <a href="/about/">About</a>
-  <a href="/blog/">Blog</a>
-
-  <h1>My Astro Site</h1>
-  <h1>My Astro Learning Blog</h1>
-  <p>This is where I will post about my journey learning Astro.</p>
-  <ul>
-    <Header />
-  </ul>
-  <Footer />
+  <BaseLayout title="My Astro blog">
+    <h1>My Astro Learning Blog</h1>
+    <p>This is where I will post about my journey learning Astro.</p>
+    <ul>
+      {
+        new Array(3).map((_, i) => <li><a href={`/posts/post-${i + 1}`}>{ `post-${i}` }</a></li>)
+      }
+    </ul>
+  </BaseLayout>
 </body>
